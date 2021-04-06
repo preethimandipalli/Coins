@@ -1,17 +1,16 @@
 package utility;
-
 import org.junit.jupiter.api.Test;
-
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class TestCoinFlipping {
     @Test
     void TestToCheckIfProbabilityOfHeadIsEqualToThatOfTail(){
-        int count=1;
-        Coins coin=new Coins(count);
+        double headProbability=0.5;
+        double tailProbability=0.5;
         boolean expected=true;
+        ProbabilityOfCoins coinProbability=new ProbabilityOfCoins(headProbability,tailProbability);
 
-        boolean actual=coin.checkEqualityOfProbability();
+        boolean actual=coinProbability.checkEqualityOfProbabilities();
 
         assertEquals(expected,actual);
 
