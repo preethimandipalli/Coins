@@ -8,9 +8,9 @@ public class TestCoinFlipping {
         double headProbability=0.5;
         double tailProbability=0.5;
         boolean expected=true;
-        ProbabilityOfCoins coinProbability=new ProbabilityOfCoins(headProbability,tailProbability);
+        ProbabilityOfCoin coinProbability=new ProbabilityOfCoin(headProbability,tailProbability);
 
-        boolean actual=coinProbability.checkEqualityOfProbabilities();
+        boolean actual=coinProbability.equals(coinProbability);
 
         assertEquals(expected,actual);
 
