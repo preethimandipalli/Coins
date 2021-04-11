@@ -37,4 +37,9 @@ public class ProbabilityOfCoin{
         return 1-side;
     }
 
+    public double or(ProbabilityOfCoin secondCoinToss) {
+
+        return (side+secondCoinToss.side)-(and(secondCoinToss));
+
+    }
 }

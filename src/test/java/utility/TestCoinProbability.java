@@ -36,6 +36,18 @@ public class TestCoinProbability {
 
         assertEquals(expectedValue, actualValue);
     }
+    @Test
+    void TestProbabilityOfEitherEventsOccurring(){
+        double expectedValue=0.75;
+        ProbabilityOfCoin firstCoinToss = new ProbabilityOfCoin(0.5);
+        ProbabilityOfCoin secondCoinToss = new ProbabilityOfCoin(0.5);
+
+        double actualValue = firstCoinToss.or(secondCoinToss);
+
+        assertEquals(expectedValue, actualValue);
+    }
+
+
 
 
 }
