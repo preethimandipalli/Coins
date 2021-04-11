@@ -3,16 +3,18 @@ package utility;
 import java.util.Objects;
 
 public class ProbabilityOfCoin{
-    private double headProbability=0.5;
-    private double tailProbability=0.5;
+    private double headProbability;
+    private double tailProbability;
+    private double side;
 
-    public double getHeadProbability() {
-        return headProbability;
-    }
-    public double getTailProbability() {
-        return headProbability;
+    public ProbabilityOfCoin(double headProbability,double tailProbability) {
+        this.headProbability = headProbability;
+        this.tailProbability = tailProbability;
     }
 
+    public ProbabilityOfCoin(double side) {
+        this.side=side;
+    }
 
     @Override
     public boolean equals(Object o) {
@@ -23,18 +25,16 @@ public class ProbabilityOfCoin{
         }
         return false;
     }
-
     @Override
     public int hashCode() {
         return Objects.hash(headProbability, tailProbability);
     }
 
-    double TwoEventsCombineProbability(double event1probability,double event2Probability) {
-
-        return event1probability * event2Probability;
+    public double and(ProbabilityOfCoin event2) {
+        return (this.side * event2.side);
     }
-
-
-
+    public double not() {
+        return 1-side;
+    }
 
 }

@@ -1,12 +1,14 @@
 package utility;
 import org.junit.jupiter.api.Test;
+
+
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class TestCoinProbability {
     @Test
     void TestToCheckIfProbabilityOfHeadIsEqualToThatOfTail(){
         boolean expected=true;
-        ProbabilityOfCoin coinProbability=new ProbabilityOfCoin();
+        ProbabilityOfCoin coinProbability=new ProbabilityOfCoin(0.5,0.5);
 
         boolean actual=coinProbability.equals(coinProbability);
 
@@ -16,18 +18,24 @@ public class TestCoinProbability {
     @Test
     void TestProbabilityOfTwoEventsOccurringTogether(){
 
-        ProbabilityOfCoin coinOneProbability = new ProbabilityOfCoin();
-        double coinOneHeadProbability=coinOneProbability.getHeadProbability();
-        ProbabilityOfCoin coinTwoProbability = new ProbabilityOfCoin();
-        double coinTwoTailProbability=coinTwoProbability.getTailProbability();
-        double expectedProbability =0.25;
+        double expectedValue = 0.25;
+        ProbabilityOfCoin tailOnFirstCoinToss = new ProbabilityOfCoin(0.5);
+        ProbabilityOfCoin headsOnSecondCoinToss = new ProbabilityOfCoin(0.5);
 
-        double actualProbability = coinOneProbability.TwoEventsCombineProbability(coinOneHeadProbability,coinTwoTailProbability);
+        double actualValue = tailOnFirstCoinToss.and(headsOnSecondCoinToss);
 
-        assertEquals(expectedProbability,actualProbability);
+        assertEquals(expectedValue, actualValue);
 
     }
+    @Test
+    void  TestProbabilityOfEventNotOccurring(){
+        double expectedValue=0.5;
+        ProbabilityOfCoin tailOnCoinToss = new ProbabilityOfCoin(0.5);
 
+        double actualValue = tailOnCoinToss.not();
+
+        assertEquals(expectedValue, actualValue);
+    }
 
 
 }
